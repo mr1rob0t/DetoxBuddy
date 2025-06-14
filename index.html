@@ -5,160 +5,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Detox Buddy</title>
-
 </head>
 <link rel="stylesheet" href="detox.css">
 <script src="detox.js"></script>
 <body>
     <div class="floating-hearts" id="hearts"></div>
 
-    <div class="phone-container">
-        <div class="notch"></div>
-        <div class="phone-screen">
-            <div class="status-bar">
-                <span>9:41</span>
-                <span>Digital Detox</span>
-                <span>100%</span>
+    <div class="app-container">
+        <div class="status-bar">
+            <span>9:41</span>
+            <span>Digital Detox</span>
+            <span>100%</span>
+        </div>
+
+        <div class="content">
+            <div class="header">
+                <div class="buddy-avatar">🤖</div>
+                <h1 class="app-title">Detox Buddy</h1>
+                <p class="app-subtitle">Your personal phone addiction recovery coach</p>
             </div>
 
-            <div class="app-container">
-                <div class="header">
-                    <div class="buddy-avatar">🤖</div>
-                    <h1 class="app-title">Detox Buddy</h1>
-                    <p class="app-subtitle">Your personal phone addiction recovery coach</p>
+            <div class="nav-tabs">
+                <div class="nav-tab active" onclick="showPage('home')">Home</div>
+                <div class="nav-tab" onclick="showPage('challenges')">Challenges</div>
+                <div class="nav-tab" onclick="showPage('timer')">Focus</div>
+                <div class="nav-tab" onclick="showPage('stats')">Progress</div>
+            </div>
+
+            <!-- Home Page -->
+            <div id="home" class="page active">
+                <div class="buddy-message" id="buddyMessage">
+                    Wow! You're absolutely crushing it! 🎉
                 </div>
 
-                <div class="nav-tabs">
-                    <div class="nav-tab active" onclick="showPage('home')">Home</div>
-                    <div class="nav-tab" onclick="showPage('challenges')">Challenges</div>
-                    <div class="nav-tab" onclick="showPage('timer')">Focus</div>
-                    <div class="nav-tab" onclick="showPage('stats')">Progress</div>
-                </div>
-
-                <!-- Home Page -->
-                <div id="home" class="page active">
-                    <div class="buddy-message" id="buddyMessage">
-                        Hey there! 👋 I noticed you've been doing great with reducing your screen time. Ready for
-                        today's challenge?
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-number" id="todayPickups">47</div>
-                        <div class="stat-label">Phone pickups today</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 70%"></div>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-number" id="screenTime">3h 42m</div>
-                        <div class="stat-label">Screen time today</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 45%"></div>
-                        </div>
-                    </div>
-
-                    <div class="mood-selector">
-                        <button class="mood-btn" onclick="selectMood('😔')" data-mood="stressed">😔</button>
-                        <button class="mood-btn" onclick="selectMood('😐')" data-mood="neutral">😐</button>
-                        <button class="mood-btn" onclick="selectMood('🙂')" data-mood="good">🙂</button>
-                        <button class="mood-btn selected" onclick="selectMood('😊')" data-mood="great">😊</button>
-                        <button class="mood-btn" onclick="selectMood('🤩')" data-mood="amazing">🤩</button>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <div class="achievement-badge">3 Day Streak! 🔥</div>
-                        <div class="achievement-badge">Early Bird 🌅</div>
+                <div class="stat-card">
+                    <div class="stat-number" id="todayPickups">36</div>
+                    <div class="stat-label">Phone pickups today</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
                     </div>
                 </div>
 
-                <!-- Challenges Page -->
-                <div id="challenges" class="page">
-                    <div class="challenge-card" onclick="startChallenge('phone-drawer')">
-                        <div class="challenge-title">📱 Phone in Drawer Challenge</div>
-                        <div class="challenge-desc">Put your phone in a drawer for 2 hours. I'll check on you!</div>
-                        <div class="challenge-reward">+50 XP</div>
-                    </div>
-
-                    <div class="challenge-card" onclick="startChallenge('digital-sunset')">
-                        <div class="challenge-title">🌅 Digital Sunset</div>
-                        <div class="challenge-desc">No screens 1 hour before bedtime. Better sleep awaits!</div>
-                        <div class="challenge-reward">+30 XP</div>
-                    </div>
-
-                    <div class="challenge-card" onclick="startChallenge('mindful-morning')">
-                        <div class="challenge-title">☀️ Mindful Morning</div>
-                        <div class="challenge-desc">Start your day without checking your phone for 30 minutes</div>
-                        <div class="challenge-reward">+40 XP</div>
-                    </div>
-
-                    <div class="challenge-card" onclick="startChallenge('social-fast')">
-                        <div class="challenge-title">📴 Social Media Fast</div>
-                        <div class="challenge-desc">Avoid all social apps for 4 hours. You got this!</div>
-                        <div class="challenge-reward">+75 XP</div>
+                <div class="stat-card">
+                    <div class="stat-number" id="screenTime">3h 30m</div>
+                    <div class="stat-label">Screen time today</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
                     </div>
                 </div>
 
-                <!-- Focus Timer Page -->
-                <div id="timer" class="page">
-                    <div class="buddy-message">
-                        Let's focus! Choose your session length and I'll keep you motivated 💪
+                <div class="mood-selector">
+                    <button class="mood-btn" onclick="selectMood('😔')" data-mood="stressed">😔</button>
+                    <button class="mood-btn" onclick="selectMood('😐')" data-mood="neutral">😐</button>
+                    <button class="mood-btn" onclick="selectMood('🙂')" data-mood="good">🙂</button>
+                    <button class="mood-btn selected" onclick="selectMood('😊')" data-mood="great">😊</button>
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <div class="achievement-badge">3 Day Streak! 🔥</div>
+                    <div class="achievement-badge">Early Bird 🌅</div>
+                </div>
+            </div>
+
+            <!-- Challenges Page -->
+            <div id="challenges" class="page">
+                <div class="challenge-card" onclick="startChallenge('phone-drawer')">
+                    <div class="challenge-title">📱 Phone in Drawer Challenge</div>
+                    <div class="challenge-desc">Put your phone in a drawer for 2 hours. I'll check on you!</div>
+                    <div class="challenge-reward">+50 XP</div>
+                </div>
+
+                <div class="challenge-card" onclick="startChallenge('digital-sunset')">
+                    <div class="challenge-title">🌅 Digital Sunset</div>
+                    <div class="challenge-desc">No screens 1 hour before bedtime. Better sleep awaits!</div>
+                    <div class="challenge-reward">+30 XP</div>
+                </div>
+
+                <div class="challenge-card" onclick="startChallenge('mindful-morning')">
+                    <div class="challenge-title">☀️ Mindful Morning</div>
+                    <div class="challenge-desc">Start your day without checking your phone for 30 minutes</div>
+                    <div class="challenge-reward">+40 XP</div>
+                </div>
+
+                <div class="challenge-card" onclick="startChallenge('social-fast')">
+                    <div class="challenge-title">📴 Social Media Fast</div>
+                    <div class="challenge-desc">Avoid all social apps for 4 hours. You got this!</div>
+                    <div class="challenge-reward">+75 XP</div>
+                </div>
+            </div>
+
+            <!-- Focus Timer Page -->
+            <div id="timer" class="page">
+                <div class="buddy-message">
+                    Let's focus! Choose your session length and I'll keep you motivated 💪
+                </div>
+
+                <div class="timer-display" id="timerDisplay">25:00</div>
+
+                <div class="timer-controls">
+                    <button class="btn btn-secondary" onclick="setTimer(15)">15m</button>
+                    <button class="btn btn-secondary" onclick="setTimer(25)">25m</button>
+                    <button class="btn btn-secondary" onclick="setTimer(45)">45m</button>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn btn-primary" id="timerBtn" onclick="toggleTimer()">Start Focus</button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <div class="stat-card">
+                        <div class="stat-number">8</div>
+                        <div class="stat-label">Focus sessions completed today</div>
                     </div>
+                </div>
+            </div>
 
-                    <div class="timer-display" id="timerDisplay">25:00</div>
+            <!-- Stats Page -->
+            <div id="stats" class="page">
+                <div class="stat-card">
+                    <div class="stat-number">127</div>
+                    <div class="stat-label">Total XP earned</div>
+                </div>
 
-                    <div class="timer-controls">
-                        <button class="btn btn-secondary" onclick="setTimer(15)">15m</button>
-                        <button class="btn btn-secondary" onclick="setTimer(25)">25m</button>
-                        <button class="btn btn-secondary" onclick="setTimer(45)">45m</button>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Current streak (days)</div>
+                </div>
 
-                    <div style="text-align: center;">
-                        <button class="btn btn-primary" id="timerBtn" onclick="toggleTimer()">Start Focus</button>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <div class="stat-card">
-                            <div class="stat-number">8</div>
-                            <div class="stat-label">Focus sessions completed today</div>
-                        </div>
+                <div class="stat-card">
+                    <div class="stat-number">23%</div>
+                    <div class="stat-label">Screen time reduction this week</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 23%"></div>
                     </div>
                 </div>
 
-                <!-- Stats Page -->
-                <div id="stats" class="page">
-                    <div class="stat-card">
-                        <div class="stat-number">127</div>
-                        <div class="stat-label">Total XP earned</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-number">7</div>
-                        <div class="stat-label">Current streak (days)</div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-number">23%</div>
-                        <div class="stat-label">Screen time reduction this week</div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 23%"></div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <h3 style="color: #333; margin-bottom: 1rem;">Your Achievements 🏆</h3>
-                        <div class="achievement-badge">First Steps 👶</div>
-                        <div class="achievement-badge">Week Warrior 💪</div>
-                        <div class="achievement-badge">Focus Master 🎯</div>
-                        <div class="achievement-badge">Early Bird 🌅</div>
-                        <div class="achievement-badge">Night Owl Tamer 🦉</div>
-                    </div>
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: #333; margin-bottom: 1rem;">Your Achievements 🏆</h3>
+                    <div class="achievement-badge">First Steps 👶</div>
+                    <div class="achievement-badge">Week Warrior 💪</div>
+                    <div class="achievement-badge">Focus Master 🎯</div>
+                    <div class="achievement-badge">Early Bird 🌅</div>
+                    <div class="achievement-badge">Night Owl Tamer 🦉</div>
                 </div>
             </div>
         </div>
     </div>
-
-
 </body>
 
 </html>

@@ -28,50 +28,31 @@ body {
     }
 }
 
-.phone-container {
-    max-width: 375px;
-    margin: 2rem auto;
-    background: #000;
-    border-radius: 40px;
-    padding: 8px;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-    position: relative;
-}
-
-.phone-screen {
-    background: #fff;
-    border-radius: 32px;
-    min-height: 95vh;
-    overflow: hidden;
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     position: relative;
 }
 
 .status-bar {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
-    padding: 8px 20px;
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
     font-weight: 600;
-}
-
-.notch {
-    position: absolute;
+    position: sticky;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 30px;
-    background: #000;
-    border-radius: 0 0 20px 20px;
-    z-index: 10;
+    z-index: 100;
 }
 
-.app-container {
-    padding: 2rem 1.5rem;
-    height: calc(100% - 60px);
+.content {
+    padding: 1.5rem;
+    padding-bottom: 2rem;
 }
 
 .header {
@@ -138,6 +119,7 @@ body {
 .app-subtitle {
     color: #666;
     font-size: 0.95rem;
+    line-height: 1.4;
 }
 
 .nav-tabs {
@@ -147,6 +129,9 @@ body {
     padding: 4px;
     margin-bottom: 2rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 70px;
+    z-index: 90;
 }
 
 .nav-tab {
@@ -306,6 +291,7 @@ body {
     gap: 1rem;
     justify-content: center;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -316,6 +302,7 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
+    min-width: 80px;
 }
 
 .btn-primary {
@@ -410,5 +397,41 @@ body {
     100% {
         transform: translateY(-100px) scale(1);
         opacity: 0;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+    .content {
+        padding: 1rem;
+    }
+
+    .buddy-avatar {
+        width: 70px;
+        height: 70px;
+        font-size: 2rem;
+    }
+
+    .app-title {
+        font-size: 1.6rem;
+    }
+
+    .nav-tab {
+        font-size: 0.8rem;
+        padding: 10px 6px;
+    }
+
+    .timer-display {
+        font-size: 2.5rem;
+    }
+
+    .mood-btn {
+        font-size: 2rem;
+        padding: 0.8rem;
+    }
+
+    .btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
     }
 }
